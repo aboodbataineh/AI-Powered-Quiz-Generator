@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Initialize your OpenAI API key
-openai.api_key = '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'
+openai.api_key = 'YOUR_OPENAI_API_KEY'
 
 
 # Function to generate quiz questions and answers
