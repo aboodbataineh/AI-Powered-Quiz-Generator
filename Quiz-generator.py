@@ -10,7 +10,7 @@ def generate_quiz(topic, num_questions):
     questions = []
     correct_answers = []
     for _ in range(num_questions):
-        prompt = f"Generate a single, detailed multiple-choice question on a {topic}, complete with four answer choices. The question should be precise, accurate, and thoroughly relevant to the topic selected. Provide the four potential answers labeled as A, B, C, and D. After the question and answers, immediately indicate which option is correct, the quiz should not inclide true or false questions,  and include a brief explanation to validate the answer. Ensure there is no duplication of questions and each query is unique to prevent any overlap in the quiz content."
+        prompt = f"Generate a single, detailed multiple-choice question on a {topic}, complete with four answer choices. The question should be precise, accurate, and thoroughly relevant to the topic selected. Provide the four potential answers labeled as A, B, C, and D. After the question and answers, immediately indicate which option is correct, the quiz should not include true or false questions,  and include a brief explanation to validate the answer. Ensure there is no duplication of questions and each query is unique to prevent any overlap in the quiz content."
         response = openai.Completion.create(
             engine="text-davinci-002",
             prompt=prompt,
