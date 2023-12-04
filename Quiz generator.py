@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Initialize your OpenAI API key
-openai.api_key = 'YOUR_OPENAI_API_KEY'
+openai.api_key = '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'
 
 
 # Function to generate quiz questions and answers
@@ -10,7 +10,7 @@ def generate_quiz(topic, num_questions):
     questions = []
     correct_answers = []
     for _ in range(num_questions):
-        prompt = f"Create a multiple-choice question about {topic} with four answers, labeled A to D. Indicate the correct answer at the end."
+        prompt = f"Generate a single, detailed multiple-choice question on a {topic}, complete with four answer choices. The question should be precise, accurate, and thoroughly relevant to the topic selected. Provide the four potential answers labeled as A, B, C, and D. After the question and answers, immediately indicate which option is correct, the quiz should not inclide true or false questions,  and include a brief explanation to validate the answer. Ensure there is no duplication of questions and each query is unique to prevent any overlap in the quiz content."
         response = openai.Completion.create(
             engine="text-davinci-002",
             prompt=prompt,
@@ -42,11 +42,18 @@ if 'correct_answers' not in st.session_state:
 if 'submit_disabled' not in st.session_state:
     st.session_state.submit_disabled = []
 
+
+
+
+
+
 # Streamlit app interface
-st.title('AI-Powered Quiz Generator')
+st.title("AI-Powered Quiz Generator")
 topic = st.text_input("Enter your quiz topic:")
 num_questions = st.number_input("Number of questions:", min_value=1, max_value=10, value=5)
 st.session_state.submit_disabled = True
+
+
 
 # Generate quiz button
 if st.button("Generate Quiz"):
@@ -86,3 +93,7 @@ def check_answers():
 # Submit quiz button
 if st.button("Submit Quiz", disabled=st.session_state.submit_disabled):
     check_answers()
+
+
+
+
